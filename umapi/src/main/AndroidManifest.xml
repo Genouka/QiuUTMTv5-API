@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The SDK is a library, so it declares no components of its own. It only needs the AIDL contract
+    (compiled into the AAR) and the Java client; the permission and the <queries> entry belong to
+    the client app's own manifest - see README.md.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" />

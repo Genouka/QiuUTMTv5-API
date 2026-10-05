@@ -1,0 +1,40 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Assemble the SDK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up the JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      # ubuntu-latest images ship the Android SDK with the licences accepted, and AGP downloads a
+      # missing platform itself - no setup-android step needed.
+      - name: Assemble the AAR and the classes jar
+        run: ./gradlew :umapi:assembleRelease :umapi:classesJar --stacktrace
+
+      - name: Upload the artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: qiuutmtv5-api
+          path: |
+            umapi/build/outputs/aar/*.aar
+            umapi/build/libs/*.jar
+          if-no-files-found: error
