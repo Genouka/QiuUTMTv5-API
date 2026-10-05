@@ -2,13 +2,12 @@
 
 # QiuUTMTv5-API
 
-**SDK for driving [QiuUTMTv5](https://github.com/Genouka/QiuUTMTv5) (UndertaleModTool Avalonia for
+**SDK for driving [QiuUTMTv5](https://github.com/Genouka/UndertaleModTool) (UndertaleModTool Avalonia for
 Android) from another app.**
 
 Run `csx` scripts inside the tool, stream their output, load and save data files - all through a
 bound `Service`, protected by a custom permission.
 
-`Android` · `AIDL` · `AAR + JAR` · `Apache-2.0`
 
 </div>
 
@@ -27,8 +26,6 @@ side** of its cross-app API:
   JSON reply. Usable from Java and Kotlin, no other dependency.
 * `samples/` - a Kotlin sample and a .NET for Android client for a toolchain that cannot consume an
   AAR.
-* `.github/workflows/` - CI that builds the AAR/classes jar and publishes them to two Maven
-  repositories.
 
 Everything is published as `com.undertalemodtool.avalonia:qiuutmtv5-api`:
 
@@ -56,24 +53,6 @@ dependencies {
     implementation("com.undertalemodtool.avalonia:qiuutmtv5-api:0.9.2.0")
 }
 ```
-
-<details>
-<summary>Using GitHub Packages instead</summary>
-
-```kotlin
-repositories {
-    maven {
-        url = uri("https://maven.pkg.github.com/Genouka/QiuUTMTv5-API")
-        credentials {
-            // A classic PAT with the read:packages scope; the built-in GITHUB_TOKEN only works
-            // inside this repository's own workflows.
-            username = providers.gradleProperty("gpr.user").orNull ?: System.getenv("GITHUB_ACTOR")
-            password = providers.gradleProperty("gpr.key").orNull ?: System.getenv("GITHUB_TOKEN")
-        }
-    }
-}
-```
-</details>
 
 ### 2. The manifest
 
@@ -402,13 +381,11 @@ repository.
 
 * **契约**：[`IUmApi.aidl`](umapi/src/main/aidl/com/undertalemodtool/avalonia/android/api/IUmApi.aidl)
   是唯一权威副本，工具本体通过名为 `api` 的 git 子模块引用它，两边不会各写一份而对不上。
-* **依赖**（推荐用 Pages 上的公开 Maven 仓库，不需要 token）：
+* **依赖** ：
   ```kotlin
   repositories { maven { url = uri("https://genouka.github.io/QiuUTMTv5-API/") } }
   dependencies { implementation("com.undertalemodtool.avalonia:qiuutmtv5-api:0.9.2.0") }
   ```
-  也可用 GitHub Packages，但读取也需要 token。
-* **产物**：AAR（Gradle/AGP 用）、`-classes.jar`（纯 jar）、`-sources.jar`。
 * **接入清单**：声明 `<uses-permission android:name="com.undertalemodtool.avalonia.android.permission.RUN_SCRIPT" />`
   和 `<queries><package android:name="com.undertalemodtool.avalonia.android" /></queries>`
   （缺少 queries 在 Android 11+ 会绑定失败）。权限是 `signature|dangerous`，实际等于
