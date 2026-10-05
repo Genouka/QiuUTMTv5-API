@@ -1,0 +1,12 @@
+# Normalise line endings so the wrapper and the build scripts behave the same everywhere:
+# gradlew and the Gradle scripts are read by Linux (CI, macOS) and must not carry CR, while
+# gradlew.bat is a Windows batch file.
+* text=auto eol=lf
+*.bat text eol=crlf
+gradlew text eol=lf
+
+# Binaries (the wrapper jar is committed on purpose; artifacts never are).
+*.jar binary
+*.aar binary
+*.apk binary
+*.keystore binary
