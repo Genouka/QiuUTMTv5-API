@@ -1,0 +1,78 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.undertalemodtool.avalonia",
+    "module": "qiuutmtv5-api",
+    "version": "0.9.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "qiuutmtv5-api-0.9.2.0.aar",
+          "url": "qiuutmtv5-api-0.9.2.0.aar",
+          "size": 37225,
+          "sha512": "05ee9728e0810134579bebca71de04a5dcb33ef4356991c17cef176422d884ddc89a0df804cf876b0879f93e68fc36fce81d00e71ffc6388285adf8d8d667c6d",
+          "sha256": "5fd621cd1e2d7a89993d401047a826857b2337aaa3bdc8a4c8383971b6fa9501",
+          "sha1": "942dd16217d384b0f0830ef87111fe8a1a01d18c",
+          "md5": "1d20bfee8b1d4cae8a5fee20613dafe4"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "qiuutmtv5-api-0.9.2.0.aar",
+          "url": "qiuutmtv5-api-0.9.2.0.aar",
+          "size": 37225,
+          "sha512": "05ee9728e0810134579bebca71de04a5dcb33ef4356991c17cef176422d884ddc89a0df804cf876b0879f93e68fc36fce81d00e71ffc6388285adf8d8d667c6d",
+          "sha256": "5fd621cd1e2d7a89993d401047a826857b2337aaa3bdc8a4c8383971b6fa9501",
+          "sha1": "942dd16217d384b0f0830ef87111fe8a1a01d18c",
+          "md5": "1d20bfee8b1d4cae8a5fee20613dafe4"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "qiuutmtv5-api-0.9.2.0-sources.jar",
+          "url": "qiuutmtv5-api-0.9.2.0-sources.jar",
+          "size": 15472,
+          "sha512": "6eb66364efe3acc33d071454c59282ccf1e43e5ecc5fe9a84a61d83ab989be09ad7798436e7dd050d3278322d250568cfe85b11a39568bf0a0c737185fe62131",
+          "sha256": "929d3486a849a5c061737e4351c82e9be6a67b1ae5aa544a0c531be82a01cc75",
+          "sha1": "5c43c1dfa1b5106359e2b90533f7b281d31ca443",
+          "md5": "8edbe1da5474d18013fa48dcfc5f1e27"
+        }
+      ]
+    }
+  ]
+}
